@@ -5,12 +5,12 @@ jobs:
     - stage: Docker build Stage
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker build -t myportfolio .
+        - docker build -t MyPortfolio .
         - docker images
-        - docker tag myportfolio $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
-        - docker push $DOCKER_USERNAME/myportfolio:$TRAVIS_BUILD_NUMBER
-        - docker tag myportfolio $DOCKER_USERNAME/myportfolio
-        - docker push $DOCKER_USERNAME/myportfolio:latest
+        - docker tag MyPortfolio $DOCKER_USERNAME/MyPortfolio:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_USERNAME/MyPortfolio:$TRAVIS_BUILD_NUMBER
+        - docker tag MyPortfolio $DOCKER_USERNAME/MyPortfolio
+        - docker push $DOCKER_USERNAME/MyPortfolio:latest
 
 
         # vi tar ett jobb som vi döpt till Docker build stage, den kollar lösen och username och loggar in, den bygger en image och döper till myportfolio och taggar med vårt dockername, vi pushar detta, sedan gört vi samma sak igen och döper till latest
