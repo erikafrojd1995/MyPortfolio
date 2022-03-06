@@ -11,4 +11,4 @@ RUN npm run build
 FROM nginx:1.19-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
-CMD ["nginx", "-9", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
